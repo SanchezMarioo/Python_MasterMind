@@ -1,0 +1,4 @@
+
+pass = "Para que añada esa palabra a una array"
+
+
