@@ -8,13 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4eed702f-ff06-46ae-8844-6bd54781360d" name="Changes" comment="Adds file &quot;colacao&quot; and &quot;tipo_test&quot;">
-      <change afterPath="$PROJECT_DIR$/Datos y control/La_Lista_De_La_Compra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Datos y control/Lista_De_La_Compra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Datos y control/Maze.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Datos y control/barra_de_vida.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Datos y control/espacios.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Datos y control/lista_numeros.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datos y control/Maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/Datos y control/Maze.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

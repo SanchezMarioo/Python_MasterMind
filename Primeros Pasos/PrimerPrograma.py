@@ -1,6 +1,0 @@
-n1= int(input("Indroduce el primer numero: "))
-n2= int(input("Indroduce el segundo numero: "))
-n3= int(input("Indroduce el tercer numero: "))
-mayor = max(n1,n2,n3)
-menor= min(n1,n2,n3)
-print("El número más grande entre {}, {}, {} es {}, y el mas pequeño es: {}".format(n1,n2,n3,mayor,menor))
