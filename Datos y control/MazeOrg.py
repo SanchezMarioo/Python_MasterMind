@@ -1,3 +1,7 @@
+
+# No consegui depurar al 100% el codigo, por  ejemplo cuando entras en una pelea despues de perderla no se muestra bien el mapa
+
+
 import os
 import random
 def clear():
@@ -10,10 +14,7 @@ map_objects = []
 fight_objects = []
 fight = False
 end_game = False
-vida_incial_pikachu = 80
-vida_incial_squirtle = 90
-vida_pikachu = vida_incial_pikachu
-vida_squirtle = vida_incial_squirtle
+
 map = """\
 ###########################
 #                           # 
@@ -46,6 +47,10 @@ while len(fight_objects) < NUM_OF_MAP_FIGHT_OBJECTS:
     if new_position not in fight_objects and new_position != my_position:
         fight_objects.append(new_position)
 while not end_game:
+    vida_incial_pikachu = 80
+    vida_incial_squirtle = 90
+    vida_pikachu = vida_incial_pikachu
+    vida_squirtle = vida_incial_squirtle
     while len(map_objects) < NUM_OF_MAP_OBJECTS:
         new_position = [random.randint(0, MAP_WIDTH-1), random.randint(0, MAP_HEIGHT-1)]
         if new_position not in map_objects and new_position != my_position:
@@ -139,12 +144,15 @@ while not end_game:
                         
                         if vida_pikachu <= 0:
                             print("Squirtle gana la batalla")
+                            vida_pikachu = 0
                             fight = False
+
                         elif vida_squirtle <= 0:
                             print("Pikachu gana la batalla")
+                            vida_squirtle = 0
                             fight = False
-                        os.system('cls' if os.name == 'nt' else 'clear')
 
+                        os.system('cls' if os.name == 'nt' else 'clear')
 
 
             print(" {} ".format(char_to_draw), end="")
