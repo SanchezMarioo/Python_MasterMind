@@ -1,6 +1,8 @@
 import os
 import random
-
+def clear():
+    # Clear the console
+    os.system('cls' if os.name == 'nt' else 'clear')
 my_position = [6, 3]
 tail_lenght = 0
 tail = []
@@ -8,6 +10,10 @@ map_objects = []
 fight_objects = []
 fight = False
 end_game = False
+vida_incial_pikachu = 80
+vida_incial_squirtle = 90
+vida_pikachu = vida_incial_pikachu
+vida_squirtle = vida_incial_squirtle
 map = """\
 ###########################
 #                           # 
@@ -44,14 +50,12 @@ while not end_game:
         new_position = [random.randint(0, MAP_WIDTH-1), random.randint(0, MAP_HEIGHT-1)]
         if new_position not in map_objects and new_position != my_position:
             map_objects.append(new_position)
-
-
     if os.name == 'nt':  
         os.system('cls')
     else:
         os.system('clear')
 
-    print("+" + "-" * MAP_WIDTH * 3 + "+")
+    print("+" + ("-" * MAP_WIDTH * 3) + "+")
 
     tail_piece = None      
     for coordinate_y in range(MAP_HEIGHT):
@@ -88,6 +92,59 @@ while not end_game:
                     tail_piece= True
                 if object_in_celd in fight_objects:
                     fight_objects.remove(object_in_celd)
+                    fight = True
+                while fight == True:
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        TAMANIO_BARRA_VIDA = 10
+                        input("Enter para continuar : ")
+                        print("Turno de Pikachu")
+                        os.system('cls' if os.name == 'nt' else 'clear')
+
+                        ataque_pikachu = random.randint(1, 2)
+                        if ataque_pikachu == 1:
+                            print("Pikachu ataca con bola voltio")
+                            vida_squirtle -= 10
+                        else:
+                            print("Pikachu ataca con onda truena")
+                            vida_squirtle -= 20
+                        barra_vida_pikachu = int(vida_pikachu * TAMANIO_BARRA_VIDA / vida_incial_pikachu)
+                        print("VIDA DE PIKACHU:  [{}{}] ({}/{})".format("*" * barra_vida_pikachu, " " * (TAMANIO_BARRA_VIDA - barra_vida_pikachu),
+                                                                    vida_pikachu, vida_incial_pikachu))
+
+                        barra_vida_squirtle = int(vida_squirtle * TAMANIO_BARRA_VIDA / vida_incial_squirtle)
+                        print("VIDA DE SQUIRTLE:  [{}{}] ({}/{})".format("*" * barra_vida_squirtle, " " * (TAMANIO_BARRA_VIDA - barra_vida_squirtle),
+                                                                    vida_squirtle, vida_incial_squirtle))
+                        print("Turno Squirtle")
+                        input("Enter para continuar : ")
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        ataque_squirtle = None
+                        while ataque_squirtle != "P" and ataque_squirtle != "A" and ataque_squirtle != "B" and ataque_squirtle != "N":
+                            ataque_squirtle = input("¿Qué ataque deseas utilizar [P] Placaje Pistola [A]gua [B]urbuja  [N]ada: ")
+                        if ataque_squirtle == "A":
+                            vida_pikachu = max(0, vida_pikachu - 10)
+                        elif ataque_squirtle == "P":
+                            vida_pikachu = max(0, vida_pikachu - 12)
+                        elif ataque_squirtle == "B":
+                            vida_pikachu = max(0, vida_pikachu - 9)
+                        elif ataque_squirtle == "N":
+                            print("Has decidido no hacer nada")
+                        print("Has decidido no hacer nada")
+                        barra_vida_pikachu = int(vida_pikachu * TAMANIO_BARRA_VIDA / vida_incial_pikachu)
+                        print("VIDA DE PIKACHU:  [{}{}] ({}/{})".format("*" * barra_vida_pikachu, " " * (TAMANIO_BARRA_VIDA - barra_vida_pikachu),
+                                                                            vida_pikachu, vida_incial_pikachu))
+
+                        barra_vida_squirtle = int(vida_squirtle * TAMANIO_BARRA_VIDA / vida_incial_squirtle)
+                        print("VIDA DE SQUIRTLE:  [{}{}] ({}/{})".format("*" * barra_vida_squirtle, " " * (TAMANIO_BARRA_VIDA - barra_vida_squirtle),
+                                                                            vida_squirtle, vida_incial_squirtle))
+                        
+                        if vida_pikachu <= 0:
+                            print("Squirtle gana la batalla")
+                            fight = False
+                        elif vida_squirtle <= 0:
+                            print("Pikachu gana la batalla")
+                            fight = False
+                        os.system('cls' if os.name == 'nt' else 'clear')
+
 
 
             print(" {} ".format(char_to_draw), end="")
@@ -132,3 +189,4 @@ while not end_game:
     if map[my_position[POS_Y]][my_position[POS_X]] == '#':
         print("Has perdido")
         end_game = True
+    
